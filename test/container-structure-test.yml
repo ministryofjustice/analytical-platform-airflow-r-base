@@ -88,6 +88,3 @@ metadataTest:
 
     - key: "DEBIAN_FRONTEND"
       value: "noninteractive"
-
-    - key: "PIP_BREAK_SYSTEM_PACKAGES"
-      value: "1"
