@@ -93,3 +93,27 @@ apt-cache policy cuda-cudart-12-8
 
 apt-cache policy cuda-compat-12-8
 ```
+
+### R
+
+```bash
+docker run -it --rm --platform linux/amd64 public.ecr.aws/ubuntu/ubuntu:24.04
+
+apt-get update
+
+apt-get install --yes curl gpg
+
+curl --location --fail-with-body \
+  "https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc" \
+  --output "marutter_pubkey.asc"
+
+cat marutter_pubkey.asc | gpg --dearmor --output marutter_pubkey.gpg
+
+install -D --owner root --group root --mode 644 marutter_pubkey.gpg /etc/apt/keyrings/marutter_pubkey.gpg
+
+echo "deb [signed-by=/etc/apt/keyrings/marutter_pubkey.gpg] https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/" > /etc/apt/sources.list.d/cran.list
+
+apt-get update --yes
+
+apt-cache policy r-base
+```
