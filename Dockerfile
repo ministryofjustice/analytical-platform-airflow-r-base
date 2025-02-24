@@ -52,6 +52,7 @@ apt-get install --yes \
   "ca-certificates=20240203" \
   "curl=8.5.0-2ubuntu10.6" \
   "git=1:2.43.0-1ubuntu7.2" \
+  "gpg=2.4.4-2ubuntu17" \
   "jq=1.7.1-3build1" \
   "unzip=6.0-28ubuntu4.1"
 
