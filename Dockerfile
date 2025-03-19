@@ -1,6 +1,6 @@
 #checkov:skip=CKV_DOCKER_2: HEALTHCHECK not required - Health checks are implemented downstream of this image
 
-FROM public.ecr.aws/ubuntu/ubuntu@sha256:562b04c2e7aedb72b0f919d659f6c607087f839d584037f096d9cd97b308006e
+FROM public.ecr.aws/ubuntu/ubuntu:24.04@sha256:562b04c2e7aedb72b0f919d659f6c607087f839d584037f096d9cd97b308006e
 
 LABEL org.opencontainers.image.vendor="Ministry of Justice" \
       org.opencontainers.image.authors="Analytical Platform (analytical-platform@digital.justice.gov.uk)" \
@@ -14,9 +14,9 @@ ENV CONTAINER_USER="analyticalplatform" \
     CONTAINER_GID="1000" \
     ANALYTICAL_PLATFORM_DIRECTORY="/opt/analyticalplatform" \
     DEBIAN_FRONTEND="noninteractive" \
-    AWS_CLI_VERSION="2.24.9" \
+    AWS_CLI_VERSION="2.24.24" \
     R_VERSION="4.4.3-1.2404.0" \
-    CUDA_VERSION="12.8.0" \
+    CUDA_VERSION="12.8.1" \
     NVIDIA_DISABLE_REQUIRE="true" \
     NVIDIA_CUDA_CUDART_VERSION="12.8.57-1" \
     NVIDIA_CUDA_COMPAT_VERSION="570.86.15-0ubuntu1" \
