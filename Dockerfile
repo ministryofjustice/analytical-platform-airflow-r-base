@@ -8,10 +8,14 @@ LABEL org.opencontainers.image.vendor="Ministry of Justice" \
       org.opencontainers.image.description="Airflow R base image for Analytical Platform" \
       org.opencontainers.image.url="https://github.com/ministryofjustice/analytical-platform-airflow-r-base"
 
+ARG AIRFLOW_RUNTIME_VERSION="default"
+
 ENV CONTAINER_USER="analyticalplatform" \
     CONTAINER_UID="1000" \
     CONTAINER_GROUP="analyticalplatform" \
     CONTAINER_GID="1000" \
+    AIRFLOW_RUNTIME="r" \
+    AIRFLOW_RUNTIME_VERSION="${AIRFLOW_RUNTIME_VERSION}" \
     ANALYTICAL_PLATFORM_DIRECTORY="/opt/analyticalplatform" \
     DEBIAN_FRONTEND="noninteractive" \
     AWS_CLI_VERSION="2.24.24" \
