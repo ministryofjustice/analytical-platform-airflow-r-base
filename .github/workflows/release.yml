@@ -41,6 +41,8 @@ jobs:
         with:
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+          build-args: |
+            AIRFLOW_RUNTIME_VERSION=${{ github.ref_name }}
 
       - name: Sign
         id: sign
