@@ -109,6 +109,8 @@ apt-get install --yes "r-base=${R_VERSION}"
 apt-get clean --yes
 
 rm --force --recursive /var/lib/apt/lists/* marutter_pubkey.asc marutter_pubkey.gpg
+
+chown --recursive "${CONTAINER_USER}:${CONTAINER_GROUP}" /usr/local/lib/R/site-library
 EOF
 
 # NVIDIA CUDA
@@ -136,8 +138,6 @@ apt-get clean --yes
 
 rm --force --recursive /var/lib/apt/lists/* 3bf863cc.pub nvidia.gpg
 EOF
-
-RUN chmod -R 777 /usr/local/lib/R/site-library
 
 USER ${CONTAINER_UID}
 WORKDIR ${ANALYTICAL_PLATFORM_DIRECTORY}
