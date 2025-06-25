@@ -1,6 +1,6 @@
 #checkov:skip=CKV_DOCKER_2: HEALTHCHECK not required - Health checks are implemented downstream of this image
 
-FROM public.ecr.aws/ubuntu/ubuntu:24.04@sha256:932333528e27f2be8ae92535c4c3c2c1030a4cf368abbec1cf61d9ee8aa7cf41
+FROM public.ecr.aws/ubuntu/ubuntu:24.04@sha256:adde43aa8a773e100cb2318bfb51d584bd25b914f99afdc710060cf5f5266ccd
 
 LABEL org.opencontainers.image.vendor="Ministry of Justice" \
       org.opencontainers.image.authors="Analytical Platform (analytical-platform@digital.justice.gov.uk)" \
@@ -18,12 +18,12 @@ ENV CONTAINER_USER="analyticalplatform" \
     AIRFLOW_RUNTIME_VERSION="${AIRFLOW_RUNTIME_VERSION}" \
     ANALYTICAL_PLATFORM_DIRECTORY="/opt/analyticalplatform" \
     DEBIAN_FRONTEND="noninteractive" \
-    AWS_CLI_VERSION="2.27.28" \
-    CUDA_VERSION="12.9.0" \
-    R_VERSION="4.5.0-3.2404.0" \
+    AWS_CLI_VERSION="2.27.42" \
+    CUDA_VERSION="12.9.1" \
     NVIDIA_DISABLE_REQUIRE="true" \
-    NVIDIA_CUDA_CUDART_VERSION="12.9.37-1" \
-    NVIDIA_CUDA_COMPAT_VERSION="575.51.03-0ubuntu1" \
+    NVIDIA_CUDA_CUDART_VERSION="12.9.79-1" \
+    NVIDIA_CUDA_COMPAT_VERSION="575.57.08-0ubuntu1" \
+    R_VERSION="4.5.1-1.2404.0" \
     NVIDIA_VISIBLE_DEVICES="all" \
     NVIDIA_DRIVER_CAPABILITIES="compute,utility" \
     LD_LIBRARY_PATH="/usr/local/nvidia/lib:/usr/local/nvidia/lib64" \

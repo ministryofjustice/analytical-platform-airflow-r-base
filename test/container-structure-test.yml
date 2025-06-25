@@ -32,12 +32,12 @@ commandTests:
   - name: "aws"
     command: "aws"
     args: ["--version"]
-    expectedOutput: ["aws-cli/2.27.28"]
+    expectedOutput: ["aws-cli/2.27.42"]
 
   - name: "r"
     command: "R"
     args: ["--version"]
-    expectedOutput: ["R version 4.5.0"]
+    expectedOutput: ["R version 4.5.1"]
 
 fileExistenceTests:
   - name: "/opt/analyticalplatform"
