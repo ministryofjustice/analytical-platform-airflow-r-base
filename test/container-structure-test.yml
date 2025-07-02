@@ -32,7 +32,7 @@ commandTests:
   - name: "aws"
     command: "aws"
     args: ["--version"]
-    expectedOutput: ["aws-cli/2.27.42"]
+    expectedOutput: ["aws-cli/2.27.47"]
 
   - name: "r"
     command: "R"
