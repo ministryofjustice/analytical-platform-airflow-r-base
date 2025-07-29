@@ -1,6 +1,6 @@
 #checkov:skip=CKV_DOCKER_2: HEALTHCHECK not required - Health checks are implemented downstream of this image
 
-FROM public.ecr.aws/ubuntu/ubuntu:24.04@sha256:adde43aa8a773e100cb2318bfb51d584bd25b914f99afdc710060cf5f5266ccd
+FROM public.ecr.aws/ubuntu/ubuntu:24.04@sha256:a0dc77bc556621fd5f59aa3a1ab15397e663d21df492eee218e9cbcedccd84a4
 
 LABEL org.opencontainers.image.vendor="Ministry of Justice" \
       org.opencontainers.image.authors="Analytical Platform (analytical-platform@digital.justice.gov.uk)" \
@@ -18,7 +18,7 @@ ENV CONTAINER_USER="analyticalplatform" \
     AIRFLOW_RUNTIME_VERSION="${AIRFLOW_RUNTIME_VERSION}" \
     ANALYTICAL_PLATFORM_DIRECTORY="/opt/analyticalplatform" \
     DEBIAN_FRONTEND="noninteractive" \
-    AWS_CLI_VERSION="2.27.47" \
+    AWS_CLI_VERSION="2.27.61" \
     CUDA_VERSION="12.9.1" \
     NVIDIA_DISABLE_REQUIRE="true" \
     NVIDIA_CUDA_CUDART_VERSION="12.9.79-1" \
@@ -55,9 +55,9 @@ apt-get install --yes \
   "apt-transport-https=2.8.3" \
   "ca-certificates=20240203" \
   "curl=8.5.0-2ubuntu10.6" \
-  "git=1:2.43.0-1ubuntu7.2" \
-  "gpg=2.4.4-2ubuntu17.2" \
-  "jq=1.7.1-3build1" \
+  "git=1:2.43.0-1ubuntu7.3" \
+  "gpg=2.4.4-2ubuntu17.3" \
+  "jq=1.7.1-3ubuntu0.24.04.1" \
   "unzip=6.0-28ubuntu4.1"
 
 apt-get clean --yes
