@@ -51,7 +51,7 @@ EOF
 RUN <<EOF
 apt-get update --yes
 
-apt-get install --yes \
+apt-get install --yes --no-install-recommends \
   "apt-transport-https=2.8.3" \
   "ca-certificates=20240203" \
   "curl=8.5.0-2ubuntu10.6" \
