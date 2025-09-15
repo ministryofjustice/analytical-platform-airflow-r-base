@@ -1,1 +1,8 @@
 # As of 20/02/2025 there are no CRITICAL or HIGH CVEs for this image
+
+## Trivy: misreading due to heredoc structure
+AVD-DS-0017
+AVD-DS-0029
+
+## Trivy: Healthchecks applied downstream
+AVD-DS-0026
