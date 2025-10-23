@@ -52,7 +52,6 @@ RUN <<EOF
 apt-get update --yes
 
 apt-get install --yes \
-  "apt-transport-https=2.8.3" \
   "ca-certificates=20240203" \
   "curl=8.5.0-2ubuntu10.6" \
   "git=1:2.43.0-1ubuntu7.3" \
