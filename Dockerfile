@@ -53,7 +53,7 @@ apt-get update --yes
 
 apt-get install --yes \
   "apt-transport-https=2.8.3" \
-  "ca-certificates=20240203" \
+  "ca-certificates=20250419" \
   "curl=8.5.0-2ubuntu10.6" \
   "git=1:2.43.0-1ubuntu7.3" \
   "gpg=2.4.4-2ubuntu17.3" \
