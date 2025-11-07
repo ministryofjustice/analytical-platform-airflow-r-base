@@ -37,7 +37,7 @@ commandTests:
   - name: "r"
     command: "R"
     args: ["--version"]
-    expectedOutput: ["R version 4.5.1"]
+    expectedOutput: ["R version 4.5.2"]
 
 fileExistenceTests:
   - name: "/opt/analyticalplatform"
