@@ -6,3 +6,6 @@ AVD-DS-0029
 
 ## Trivy: Healthchecks applied downstream
 AVD-DS-0026
+
+## CVE-2025-38666 - Linux kernel vulnerability
+CVE-2025-38666
