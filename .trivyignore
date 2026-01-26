@@ -9,3 +9,6 @@ AVD-DS-0026
 
 ## CVE-2025-38666 - Linux kernel vulnerability
 CVE-2025-38666
+
+## CVE-2026-24049 (Python (python-pkg) - wheel (METADATA))
+CVE-2026-24049 exp:2026-02-06
