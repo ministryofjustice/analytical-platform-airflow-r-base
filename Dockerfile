@@ -23,7 +23,7 @@ ENV CONTAINER_USER="analyticalplatform" \
     NVIDIA_DISABLE_REQUIRE="true" \
     NVIDIA_CUDA_CUDART_VERSION="12.9.79-1" \
     NVIDIA_CUDA_COMPAT_VERSION="575.57.08-0ubuntu1" \
-    R_VERSION="4.5.2-1.2404.0" \
+    R_VERSION="4.5.3-1.2404.0" \
     NVIDIA_VISIBLE_DEVICES="all" \
     NVIDIA_DRIVER_CAPABILITIES="compute,utility" \
     LD_LIBRARY_PATH="/usr/local/nvidia/lib:/usr/local/nvidia/lib64" \
@@ -53,7 +53,7 @@ apt-get update --yes
 
 apt-get install --yes \
   "ca-certificates=20240203" \
-  "curl=8.5.0-2ubuntu10.7" \
+  "curl=8.5.0-2ubuntu10.8" \
   "git=1:2.43.0-1ubuntu7.3" \
   "gpg=2.4.4-2ubuntu17.4" \
   "jq=1.7.1-3ubuntu0.24.04.1" \

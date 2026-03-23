@@ -11,6 +11,9 @@ updates:
       include: "scope"
     cooldown:
       default-days: 7
+      exclude:
+        - "ministryofjustice/action*"
+        - "ministryofjustice/analytical-platform-github-actions*"
   - package-ecosystem: "devcontainers"
     directory: "/"
     schedule:
@@ -20,6 +23,8 @@ updates:
       include: "scope"
     cooldown:
       default-days: 7
+      exclude:
+        - "ghcr.io/ministryofjustice/devcontainer-feature/*"
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
