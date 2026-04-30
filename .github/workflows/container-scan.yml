@@ -6,11 +6,14 @@ on:
     branches:
       - main
 
-permissions: {}
+permissions:
+  contents: read
+  pull-requests: write
+  id-token: write
 
 jobs:
   container-scan:
     name: Container Scan
-    permissions:
-      contents: read
-    uses: ministryofjustice/analytical-platform-github-actions/.github/workflows/reusable-container-scan.yml@8465086d84a8ae8fb993ef582f00cf13b8ceb9c8 # v7.1.0
+    uses: ministryofjustice/analytical-platform-airflow-github-actions/.github/workflows/shared-scan-container.yml@5df18d64ab85a164f7241c38447c4575f1a85f40 # v5.1.0
+    with:
+      runtime: r
