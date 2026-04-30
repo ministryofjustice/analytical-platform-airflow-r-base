@@ -32,7 +32,7 @@ commandTests:
   - name: "aws"
     command: "aws"
     args: ["--version"]
-    expectedOutput: ["aws-cli/2.34.1"]
+    expectedOutput: ["aws-cli/2.34.39"]
 
   - name: "r"
     command: "R"
@@ -46,8 +46,8 @@ fileExistenceTests:
     uid: 1000
     gid: 1000
 
-  - name: "/usr/local/cuda/lib64/libcudart.so.12"
-    path: "/usr/local/cuda/lib64/libcudart.so.12"
+  - name: "/usr/local/cuda/lib64/libcudart.so.13"
+    path: "/usr/local/cuda/lib64/libcudart.so.13"
     shouldExist: true
 
 metadataTest:
