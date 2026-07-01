@@ -58,6 +58,8 @@ apt-get install --yes \
   "git=1:2.43.0-1ubuntu7.3" \
   "gpg=2.4.4-2ubuntu17.4" \
   "jq=1.7.1-3ubuntu0.24.04.2" \
+  "libcap2=1:2.66-5ubuntu2.4" \
+  "libgnutls30t64=3.8.3-1.1ubuntu3.6" \
   "unzip=6.0-28ubuntu4.1"
 
 apt-get clean --yes
