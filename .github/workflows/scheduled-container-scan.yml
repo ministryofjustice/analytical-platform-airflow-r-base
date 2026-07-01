@@ -13,6 +13,9 @@ jobs:
     name: Scheduled Container Scan
     permissions:
       contents: read
-    uses: ministryofjustice/analytical-platform-github-actions/.github/workflows/reusable-scheduled-container-scan.yml@f3b2ed398ec5c17e2f59d983bc01c79c73632246 # v7.3.0
+      security-events: write
+    uses: ministryofjustice/analytical-platform-airflow-github-actions/.github/workflows/shared-scheduled-container-scan.yml@613a7cc7496ddaed7ae2b12059177d8aeb0760ae # v7.0.0
+    with:
+      runtime: r
     secrets:
       cve-scan-slack-webhook-url: ${{ secrets.ANALYTICAL_PLATFORM_CVE_SCAN_SLACK_WEBHOOK_URL }}
