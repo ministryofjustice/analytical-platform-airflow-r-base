@@ -18,7 +18,7 @@ ENV CONTAINER_USER="analyticalplatform" \
     AIRFLOW_RUNTIME_VERSION="${AIRFLOW_RUNTIME_VERSION}" \
     ANALYTICAL_PLATFORM_DIRECTORY="/opt/analyticalplatform" \
     DEBIAN_FRONTEND="noninteractive" \
-    AWS_CLI_VERSION="2.34.39" \
+    AWS_CLI_VERSION="2.35.17" \
     CUDA_VERSION="13.1.0" \
     NVIDIA_DISABLE_REQUIRE="true" \
     NVIDIA_CUDA_COMPAT_VERSION="590.48.01-0ubuntu1" \
@@ -53,6 +53,7 @@ apt-get update --yes
 
 apt-get install --yes \
   "apt-transport-https=2.8.3" \
+  "gzip=1.12-1ubuntu3.2" \
   "ca-certificates=20260601~24.04.1" \
   "curl=8.5.0-2ubuntu10.10" \
   "git=1:2.43.0-1ubuntu7.3" \
