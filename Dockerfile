@@ -55,7 +55,7 @@ apt-get install --yes \
   "apt-transport-https=2.8.3" \
   "gzip=1.12-1ubuntu3.2" \
   "ca-certificates=20260601~24.04.1" \
-  "curl=8.5.0-2ubuntu10.10" \
+  "curl=8.5.0-2ubuntu10.11" \
   "git=1:2.43.0-1ubuntu7.3" \
   "gpg=2.4.4-2ubuntu17.4" \
   "jq=1.7.1-3ubuntu0.24.04.2" \

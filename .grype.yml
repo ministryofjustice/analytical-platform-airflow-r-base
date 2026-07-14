@@ -7,3 +7,5 @@ ignore:
   # Patched upstream, awaiting base image update - see README on how to check for updates.
   - vulnerability: CVE-2026-9669
   # vuln coming from aws cli - waiting for new release of aws cli to fix.
+  - vulnerability: CVE-2026-15308
+  # Python bundled in AWS CLI awaiting upstream fix - only processes AWS JSON API responses, not untrusted HTML - not exploitable.
