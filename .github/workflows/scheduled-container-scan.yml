@@ -14,7 +14,7 @@ jobs:
     permissions:
       contents: read
       security-events: write
-    uses: ministryofjustice/analytical-platform-airflow-github-actions/.github/workflows/shared-scheduled-container-scan.yml@de8b9bbd6689a6bac0ef5867dce8910ae17c0bc7 # v7.0.0
+    uses: ministryofjustice/analytical-platform-airflow-github-actions/.github/workflows/shared-scheduled-container-scan.yml@fix/slack-message # v7.0.0
     with:
       runtime: r
     secrets:
