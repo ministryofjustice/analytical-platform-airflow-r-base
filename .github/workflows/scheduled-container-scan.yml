@@ -3,7 +3,7 @@ name: ⏰ Scheduled Container Scan
 
 on:
   schedule:
-    - cron: "0 9 * * 1-5" # Every weekday at 9AM UTC
+    - cron: "46 15 * * 1-5" # Every weekday at 9AM UTC
   workflow_dispatch:
 
 permissions: {}
@@ -14,7 +14,7 @@ jobs:
     permissions:
       contents: read
       security-events: write
-    uses: ministryofjustice/analytical-platform-airflow-github-actions/.github/workflows/shared-scheduled-container-scan.yml@613a7cc7496ddaed7ae2b12059177d8aeb0760ae # v7.0.0
+    uses: ministryofjustice/analytical-platform-airflow-github-actions/.github/workflows/shared-scheduled-container-scan.yml@de8b9bbd6689a6bac0ef5867dce8910ae17c0bc7 # v7.0.0
     with:
       runtime: r
     secrets:
