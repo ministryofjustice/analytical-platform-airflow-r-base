@@ -14,7 +14,7 @@ This image is built on Ubuntu 24.04 LTS and includes the following software:
 
 - AWS CLI
 
-- R 4.5.1
+- R 4.6.1
 
 - NVIDIA CUDA drivers
 
@@ -89,9 +89,9 @@ echo "deb [signed-by=/etc/apt/keyrings/nvidia.gpg] https://developer.download.nv
 
 apt-get update --yes
 
-apt-cache policy cuda-cudart-12-9
+apt-cache policy cuda-cudart-13-1
 
-apt-cache policy cuda-compat-12-9
+apt-cache policy cuda-compat-13-1
 ```
 
 ### R

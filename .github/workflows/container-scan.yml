@@ -12,5 +12,11 @@ jobs:
   container-scan:
     name: Container Scan
     permissions:
+      actions: read
       contents: read
-    uses: ministryofjustice/analytical-platform-github-actions/.github/workflows/reusable-container-scan.yml@6238a30dc9be3f1c5b76b665d9a09f9e163183f7 # v6.2.0
+      id-token: write
+      pull-requests: write
+      security-events: write
+    uses: ministryofjustice/analytical-platform-airflow-github-actions/.github/workflows/shared-scan-container.yml@613a7cc7496ddaed7ae2b12059177d8aeb0760ae # v7.0.0
+    with:
+      runtime: r
