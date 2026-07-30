@@ -26,4 +26,3 @@ ignore:
       that upgrades the bundled runtime to a fixed version (>= 3.15.0b4).
       Scope is limited to the embedded interpreter at
       /usr/local/aws-cli/v2/*/dist/libpython3.14.so.1.0.
-
