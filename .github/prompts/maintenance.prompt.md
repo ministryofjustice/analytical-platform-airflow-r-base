@@ -1,7 +1,14 @@
 ---
 description: "Update the Ubuntu base image digest, pinned APT package versions, AWS CLI version, NVIDIA CUDA versions, and R version in the Dockerfile and open a pull request"
 tools:
-  [execute/getTerminalOutput, execute/runInTerminal, read/readFile, vscodeGeneral/usages, edit/editFiles, search]
+  [
+    execute/getTerminalOutput,
+    execute/runInTerminal,
+    read/readFile,
+    vscodeGeneral/usages,
+    edit/editFiles,
+    search,
+  ]
 ---
 
 # Maintenance
@@ -157,10 +164,10 @@ If unchanged, omit this section.
 
 ### NVIDIA CUDA
 
-| Variable                      | Before  | After   |
-| ----------------------------- | ------- | ------- |
-| `NVIDIA_CUDA_CUDART_VERSION`  | `<old>` | `<new>` |
-| `NVIDIA_CUDA_COMPAT_VERSION`  | `<old>` | `<new>` |
+| Variable                     | Before  | After   |
+| ---------------------------- | ------- | ------- |
+| `NVIDIA_CUDA_CUDART_VERSION` | `<old>` | `<new>` |
+| `NVIDIA_CUDA_COMPAT_VERSION` | `<old>` | `<new>` |
 
 If unchanged, omit this section.
 
