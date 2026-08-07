@@ -1,5 +1,8 @@
 ---
 extends: default
 
+ignore:
+  - "**/apm.lock.yaml"
+
 rules:
   line-length: disable
