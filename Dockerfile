@@ -56,6 +56,8 @@ apt-get install --yes \
   "gzip=1.12-1ubuntu3.2" \
   "ca-certificates=20260601~24.04.1" \
   "curl=8.5.0-2ubuntu10.12" \
+  "libcurl3t64-gnutls=8.5.0-2ubuntu10.12" \
+  "libcurl4t64=8.5.0-2ubuntu10.12" \
   "git=1:2.43.0-1ubuntu7.3" \
   "gpg=2.4.4-2ubuntu17.4" \
   "jq=1.7.1-3ubuntu0.24.04.2" \
