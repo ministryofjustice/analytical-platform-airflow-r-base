@@ -21,3 +21,45 @@ ignore:
   - vulnerability: CVE-2026-11972
     expires-at: "2026-08-11"
     reason: *aws_cli_embedded_python_reason
+  - vulnerability: CVE-2026-13221
+    expires-at: "2026-10-03"
+    reason: &perl_base_image_reason >-
+      perl/perl-base/perl-modules-5.38/libperl5.38t64 are inherited from the
+      ubuntu:24.04 base image, not pinned in this Dockerfile. Fix
+      5.38.2-3.2ubuntu0.4 not yet baked into the base image digest.
+  - vulnerability: CVE-2026-12087
+    expires-at: "2026-10-03"
+    reason: *perl_base_image_reason
+  - vulnerability: CVE-2026-57433
+    expires-at: "2026-10-03"
+    reason: *perl_base_image_reason
+  - vulnerability: CVE-2026-9538
+    expires-at: "2026-10-03"
+    reason: *perl_base_image_reason
+  - vulnerability: CVE-2026-7017
+    expires-at: "2026-10-03"
+    reason: *perl_base_image_reason
+  - vulnerability: CVE-2026-48959
+    expires-at: "2026-10-03"
+    reason: *perl_base_image_reason
+  - vulnerability: CVE-2026-48962
+    expires-at: "2026-10-03"
+    reason: *perl_base_image_reason
+  - vulnerability: CVE-2026-57432
+    expires-at: "2026-10-03"
+    reason: *perl_base_image_reason
+  - vulnerability: CVE-2026-59850
+    expires-at: "2026-10-03"
+    reason: &libssh_base_image_reason >-
+      libssh-4 is inherited from the ubuntu:24.04 base image, not pinned in
+      this Dockerfile. Fix 0.10.6-2ubuntu0.5 not yet baked into the base
+      image digest.
+  - vulnerability: CVE-2026-59847
+    expires-at: "2026-10-03"
+    reason: *libssh_base_image_reason
+  - vulnerability: CVE-2026-54371
+    expires-at: "2026-10-03"
+    reason: >-
+      libattr1 is inherited from the ubuntu:24.04 base image, not pinned in
+      this Dockerfile. Fix 1:2.5.2-1ubuntu0.1 not yet baked into the base
+      image digest.
