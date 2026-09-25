@@ -4,22 +4,18 @@
 
 # Ignore rules for known vulnerabilities that cannot be easily fixed
 ignore:
-  - vulnerability: CVE-2026-15308
-    reason: |
-      This vulnerability is in Python 3.14.6 bundled within AWS CLI v2.35.17.
-      AWS CLI bundles its own Python runtime and cannot be easily upgraded without
-      rebuilding AWS CLI itself. AWS CLI v2.35.17 is the latest available version.
-      This is an acceptable risk for an Airflow runtime image.
   - vulnerability: CVE-2026-11940
-    expires-at: "2026-08-11"
     reason: &aws_cli_embedded_python_reason >-
-      False positive / not currently remediable in this repository: AWS CLI v2
-      bundles Python 3.14.6 and upstream AWS CLI has not yet published a release
-      that upgrades the bundled runtime to a fixed version (>= 3.15.0b4).
-      Scope is limited to the embedded interpreter at
-      /usr/local/aws-cli/v2/*/dist/libpython3.14.so.1.0.
+      Accepted temporary risk: this finding is limited to the Python 3.14.6
+      interpreter embedded by AWS CLI v2 at
+      /usr/local/aws-cli/v2/*/dist/libpython3.14.so.1.0. The latest available
+      AWS CLI v2 release (2.37.3) still bundles Python 3.14.6, so this
+      repository cannot remediate the finding without an upstream AWS CLI
+      release containing a fixed Python runtime. Review when AWS CLI updates
+      its embedded Python runtime.
   - vulnerability: CVE-2026-11972
-    expires-at: "2026-08-11"
+    reason: *aws_cli_embedded_python_reason
+  - vulnerability: CVE-2026-15308
     reason: *aws_cli_embedded_python_reason
   - vulnerability: CVE-2026-13221
     expires-at: "2026-10-03"
