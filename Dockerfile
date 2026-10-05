@@ -69,7 +69,13 @@ apt-get install --yes \
   "libc-dev-bin=2.39-0ubuntu8.9" \
   "libc-devtools=2.39-0ubuntu8.9" \
   "libc6=2.39-0ubuntu8.9" \
-  "libc6-dev=2.39-0ubuntu8.9"
+  "libc6-dev=2.39-0ubuntu8.9" \
+  "libauthen-sasl-perl=2.1700-1ubuntu0.1" \
+  "libssl3t64=3.0.13-0ubuntu3.16" \
+  "openssl=3.0.13-0ubuntu3.16" \
+  "libheif1=1.17.6-1ubuntu4.9" \
+  "libheif-plugin-aomdec=1.17.6-1ubuntu4.9" \
+  "libheif-plugin-aomenc=1.17.6-1ubuntu4.9"
 
 apt-get clean --yes
 
