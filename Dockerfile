@@ -1,6 +1,6 @@
 #checkov:skip=CKV_DOCKER_2: HEALTHCHECK not required - Health checks are implemented downstream of this image
 
-FROM docker.io/library/ubuntu:24.04@sha256:008173c23f95b170204355c12626cb5a965d779a7e1283b09e9cffbb1bf33ca3
+FROM docker.io/library/ubuntu:24.04@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
 
 LABEL org.opencontainers.image.vendor="Ministry of Justice" \
       org.opencontainers.image.authors="Analytical Platform (analytical-platform@digital.justice.gov.uk)" \
@@ -18,7 +18,7 @@ ENV CONTAINER_USER="analyticalplatform" \
     AIRFLOW_RUNTIME_VERSION="${AIRFLOW_RUNTIME_VERSION}" \
     ANALYTICAL_PLATFORM_DIRECTORY="/opt/analyticalplatform" \
     DEBIAN_FRONTEND="noninteractive" \
-    AWS_CLI_VERSION="2.37.3" \
+    AWS_CLI_VERSION="2.37.9" \
     CUDA_VERSION="13.4.2" \
     NVIDIA_DISABLE_REQUIRE="true" \
     NVIDIA_CUDA_COMPAT_VERSION="615.71.09-2ubuntu1" \
@@ -69,7 +69,13 @@ apt-get install --yes \
   "libc-dev-bin=2.39-0ubuntu8.9" \
   "libc-devtools=2.39-0ubuntu8.9" \
   "libc6=2.39-0ubuntu8.9" \
-  "libc6-dev=2.39-0ubuntu8.9"
+  "libc6-dev=2.39-0ubuntu8.9" \
+  "libauthen-sasl-perl=2.1700-1ubuntu0.1" \
+  "libssl3t64=3.0.13-0ubuntu3.16" \
+  "openssl=3.0.13-0ubuntu3.16" \
+  "libheif1=1.17.6-1ubuntu4.9" \
+  "libheif-plugin-aomdec=1.17.6-1ubuntu4.9" \
+  "libheif-plugin-aomenc=1.17.6-1ubuntu4.9"
 
 apt-get clean --yes
 
