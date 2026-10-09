@@ -62,3 +62,15 @@ ignore:
       libattr1 is inherited from the ubuntu:24.04 base image, not pinned in
       this Dockerfile. Fix 1:2.5.2-1ubuntu0.1 not yet baked into the base
       image digest.
+  # Python bundled with AWS CLI v2 (3.14.6). Fixed upstream in Python 3.14.8,
+  # but no AWS CLI release bundles it yet. Remove once AWS CLI ships >= 3.14.8.
+  - vulnerability: CVE-2026-19445
+    package:
+      name: python
+      version: 3.14.6
+      location: "/usr/local/aws-cli/v2/*/dist/libpython3.14.so.1.0"
+  - vulnerability: CVE-2026-19553
+    package:
+      name: python
+      version: 3.14.6
+      location: "/usr/local/aws-cli/v2/*/dist/libpython3.14.so.1.0"
