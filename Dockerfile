@@ -18,11 +18,11 @@ ENV CONTAINER_USER="analyticalplatform" \
     AIRFLOW_RUNTIME_VERSION="${AIRFLOW_RUNTIME_VERSION}" \
     ANALYTICAL_PLATFORM_DIRECTORY="/opt/analyticalplatform" \
     DEBIAN_FRONTEND="noninteractive" \
-    AWS_CLI_VERSION="2.36.17" \
-    CUDA_VERSION="13.1.0" \
+    AWS_CLI_VERSION="2.38.0" \
+    CUDA_VERSION="13.4.2" \
     NVIDIA_DISABLE_REQUIRE="true" \
-    NVIDIA_CUDA_COMPAT_VERSION="590.48.01-0ubuntu1" \
-    NVIDIA_CUDA_CUDART_VERSION="13.1.80-1" \
+    NVIDIA_CUDA_COMPAT_VERSION="615.71.09-2ubuntu1" \
+    NVIDIA_CUDA_CUDART_VERSION="13.4.92-1" \
     R_VERSION="4.6.1-6.2404.0" \
     NVIDIA_VISIBLE_DEVICES="all" \
     NVIDIA_DRIVER_CAPABILITIES="compute,utility" \
@@ -55,15 +55,27 @@ apt-get install --yes \
   "apt-transport-https=2.8.3" \
   "gzip=1.12-1ubuntu3.2" \
   "ca-certificates=20260601~24.04.1" \
-  "curl=8.5.0-2ubuntu10.13" \
-  "libcurl3t64-gnutls=8.5.0-2ubuntu10.13" \
-  "libcurl4t64=8.5.0-2ubuntu10.13" \
+  "curl=8.5.0-2ubuntu10.15" \
+  "libcurl3t64-gnutls=8.5.0-2ubuntu10.15" \
+  "libcurl4t64=8.5.0-2ubuntu10.15" \
   "git=1:2.43.0-1ubuntu7.3" \
-  "gpg=2.4.4-2ubuntu17.4" \
+  "gpg=2.4.4-2ubuntu17.6" \
   "jq=1.7.1-3ubuntu0.24.04.2" \
   "libcap2=1:2.66-5ubuntu2.4" \
+  "libaom3=3.8.2-2ubuntu0.2" \
   "libgnutls30t64=3.8.3-1.1ubuntu3.6" \
-  "unzip=6.0-28ubuntu4.1"
+  "unzip=6.0-28ubuntu4.1" \
+  "libc-bin=2.39-0ubuntu8.9" \
+  "libc-dev-bin=2.39-0ubuntu8.9" \
+  "libc-devtools=2.39-0ubuntu8.9" \
+  "libc6=2.39-0ubuntu8.9" \
+  "libc6-dev=2.39-0ubuntu8.9" \
+  "libauthen-sasl-perl=2.1700-1ubuntu0.1" \
+  "libssl3t64=3.0.13-0ubuntu3.16" \
+  "openssl=3.0.13-0ubuntu3.16" \
+  "libheif1=1.17.6-1ubuntu4.9" \
+  "libheif-plugin-aomdec=1.17.6-1ubuntu4.9" \
+  "libheif-plugin-aomenc=1.17.6-1ubuntu4.9"
 
 apt-get clean --yes
 
@@ -133,8 +145,8 @@ echo "deb [signed-by=/etc/apt/keyrings/nvidia.gpg] https://developer.download.nv
 apt-get update --yes
 
 apt-get install --yes \
-  "cuda-cudart-13-1=${NVIDIA_CUDA_CUDART_VERSION}" \
-  "cuda-compat-13-1=${NVIDIA_CUDA_COMPAT_VERSION}"
+  "cuda-cudart-13-4=${NVIDIA_CUDA_CUDART_VERSION}" \
+  "cuda-compat-13-4=${NVIDIA_CUDA_COMPAT_VERSION}"
 
 echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf
 echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
