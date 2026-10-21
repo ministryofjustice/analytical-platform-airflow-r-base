@@ -122,7 +122,10 @@ echo "deb [signed-by=/etc/apt/keyrings/marutter_pubkey.gpg] https://cloud.r-proj
 
 apt-get update --yes
 
-apt-get install --yes "r-base=${R_VERSION}"
+apt-get install --yes \
+  "r-base=${R_VERSION}" \
+  "r-base-core=${R_VERSION}" \
+  "r-recommended=${R_VERSION}"
 
 apt-get clean --yes
 
