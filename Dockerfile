@@ -1,6 +1,6 @@
 #checkov:skip=CKV_DOCKER_2: HEALTHCHECK not required - Health checks are implemented downstream of this image
 
-FROM docker.io/library/ubuntu:24.04@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55
+FROM docker.io/library/ubuntu:24.04@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac
 
 LABEL org.opencontainers.image.vendor="Ministry of Justice" \
       org.opencontainers.image.authors="Analytical Platform (analytical-platform@digital.justice.gov.uk)" \
@@ -73,6 +73,7 @@ apt-get install --yes \
   "libauthen-sasl-perl=2.1700-1ubuntu0.1" \
   "libssl3t64=3.0.13-0ubuntu3.16" \
   "openssl=3.0.13-0ubuntu3.16" \
+  "openssh-client=1:9.6p1-3ubuntu13.20" \
   "libheif1=1.17.6-1ubuntu4.9" \
   "libheif-plugin-aomdec=1.17.6-1ubuntu4.9" \
   "libheif-plugin-aomenc=1.17.6-1ubuntu4.9"
@@ -121,7 +122,10 @@ echo "deb [signed-by=/etc/apt/keyrings/marutter_pubkey.gpg] https://cloud.r-proj
 
 apt-get update --yes
 
-apt-get install --yes "r-base=${R_VERSION}"
+apt-get install --yes \
+  "r-base=${R_VERSION}" \
+  "r-base-core=${R_VERSION}" \
+  "r-recommended=${R_VERSION}"
 
 apt-get clean --yes
 
