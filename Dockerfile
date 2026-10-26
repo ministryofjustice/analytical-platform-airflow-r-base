@@ -76,7 +76,8 @@ apt-get install --yes \
   "openssh-client=1:9.6p1-3ubuntu13.20" \
   "libheif1=1.17.6-1ubuntu4.9" \
   "libheif-plugin-aomdec=1.17.6-1ubuntu4.9" \
-  "libheif-plugin-aomenc=1.17.6-1ubuntu4.9"
+  "libheif-plugin-aomenc=1.17.6-1ubuntu4.9" \
+  "zlib1g=1:1.3.dfsg-3.1ubuntu2.3"
 
 apt-get clean --yes
 
