@@ -56,6 +56,7 @@ apt-get install --yes \
   "gzip=1.12-1ubuntu3.2" \
   "ca-certificates=20260816ubuntu0.24.04.1" \
   "curl=8.5.0-2ubuntu10.16" \
+  "libbrotli1=1.1.0-2ubuntu0.1" \
   "libcurl3t64-gnutls=8.5.0-2ubuntu10.16" \
   "libcurl4t64=8.5.0-2ubuntu10.16" \
   "git=1:2.43.0-1ubuntu7.4" \
