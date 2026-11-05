@@ -73,6 +73,7 @@ apt-get install --yes \
   "libc6-dev=2.39-0ubuntu8.9" \
   "libauthen-sasl-perl=2.1700-1ubuntu0.1" \
   "libssl3t64=3.0.13-0ubuntu3.16" \
+  "libpcre2-8-0=10.42-4ubuntu2.2" \
   "openssl=3.0.13-0ubuntu3.16" \
   "openssh-client=1:9.6p1-3ubuntu13.20" \
   "libheif1=1.17.6-1ubuntu4.9" \
