@@ -52,7 +52,9 @@ RUN <<EOF
 apt-get update --yes
 
 apt-get install --yes \
-  "apt-transport-https=2.8.3" \
+  "apt=2.8.4ubuntu0.1" \
+  "apt-transport-https=2.8.4ubuntu0.1" \
+  "libapt-pkg6.0t64=2.8.4ubuntu0.1" \
   "gzip=1.12-1ubuntu3.2" \
   "ca-certificates=20260816ubuntu0.24.04.1" \
   "curl=8.5.0-2ubuntu10.16" \
