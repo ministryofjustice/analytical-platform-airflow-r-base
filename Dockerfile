@@ -56,7 +56,7 @@ apt-get install --yes \
   "apt-transport-https=2.8.4ubuntu0.1" \
   "libapt-pkg6.0t64=2.8.4ubuntu0.1" \
   "gzip=1.12-1ubuntu3.2" \
-  "ca-certificates=20260816ubuntu0.24.04.1" \
+  "ca-certificates=20260816ubuntu0.24.04.2" \
   "curl=8.5.0-2ubuntu10.16" \
   "libbrotli1=1.1.0-2ubuntu0.1" \
   "libcurl3t64-gnutls=8.5.0-2ubuntu10.16" \
