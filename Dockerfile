@@ -1,6 +1,6 @@
 #checkov:skip=CKV_DOCKER_2: HEALTHCHECK not required - Health checks are implemented downstream of this image
 
-FROM docker.io/library/ubuntu:24.04@sha256:24737cef17f4e22b1977df7d9a05e77c4e28b7da5b8911f8d8ccda136bf3573c
+FROM docker.io/library/ubuntu:24.04@sha256:2198e4c65076e9cb0b3d695219df667c0e3b0072da64ca3c2648aca17dcecaf5
 
 LABEL org.opencontainers.image.vendor="Ministry of Justice" \
       org.opencontainers.image.authors="Analytical Platform (analytical-platform@digital.justice.gov.uk)" \
@@ -18,12 +18,12 @@ ENV CONTAINER_USER="analyticalplatform" \
     AIRFLOW_RUNTIME_VERSION="${AIRFLOW_RUNTIME_VERSION}" \
     ANALYTICAL_PLATFORM_DIRECTORY="/opt/analyticalplatform" \
     DEBIAN_FRONTEND="noninteractive" \
-    AWS_CLI_VERSION="2.38.0" \
-    CUDA_VERSION="13.4.2" \
+    AWS_CLI_VERSION="2.40.2" \
+    CUDA_VERSION="13.5.0" \
     NVIDIA_DISABLE_REQUIRE="true" \
-    NVIDIA_CUDA_COMPAT_VERSION="615.71.09-2ubuntu1" \
-    NVIDIA_CUDA_CUDART_VERSION="13.4.92-1" \
-    R_VERSION="4.6.1-6.2404.0" \
+    NVIDIA_CUDA_COMPAT_VERSION="620.70.06-1ubuntu1" \
+    NVIDIA_CUDA_CUDART_VERSION="13.5.37-1" \
+    R_VERSION="4.6.2-1.2404.0" \
     NVIDIA_VISIBLE_DEVICES="all" \
     NVIDIA_DRIVER_CAPABILITIES="compute,utility" \
     LD_LIBRARY_PATH="/usr/local/nvidia/lib:/usr/local/nvidia/lib64" \
@@ -158,8 +158,8 @@ echo "deb [signed-by=/etc/apt/keyrings/nvidia.gpg] https://developer.download.nv
 apt-get update --yes
 
 apt-get install --yes \
-  "cuda-cudart-13-4=${NVIDIA_CUDA_CUDART_VERSION}" \
-  "cuda-compat-13-4=${NVIDIA_CUDA_COMPAT_VERSION}"
+  "cuda-cudart-13-5=${NVIDIA_CUDA_CUDART_VERSION}" \
+  "cuda-compat-13-5=${NVIDIA_CUDA_COMPAT_VERSION}"
 
 echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf
 echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
