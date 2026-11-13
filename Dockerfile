@@ -74,6 +74,10 @@ apt-get install --yes \
   "libc6=2.39-0ubuntu8.9" \
   "libc6-dev=2.39-0ubuntu8.9" \
   "libauthen-sasl-perl=2.1700-1ubuntu0.1" \
+  "libperl5.38t64=5.38.2-3.2ubuntu0.7" \
+  "perl=5.38.2-3.2ubuntu0.7" \
+  "perl-base=5.38.2-3.2ubuntu0.7" \
+  "perl-modules-5.38=5.38.2-3.2ubuntu0.7" \
   "libssl3t64=3.0.13-0ubuntu3.16" \
   "libpcre2-8-0=10.42-4ubuntu2.2" \
   "openssl=3.0.13-0ubuntu3.16" \
