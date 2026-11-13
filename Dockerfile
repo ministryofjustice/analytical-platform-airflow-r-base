@@ -68,11 +68,11 @@ apt-get install --yes \
   "libaom3=3.8.2-2ubuntu0.2" \
   "libgnutls30t64=3.8.3-1.1ubuntu3.6" \
   "unzip=6.0-28ubuntu4.1" \
-  "libc-bin=2.39-0ubuntu8.9" \
-  "libc-dev-bin=2.39-0ubuntu8.9" \
-  "libc-devtools=2.39-0ubuntu8.9" \
-  "libc6=2.39-0ubuntu8.9" \
-  "libc6-dev=2.39-0ubuntu8.9" \
+  "libc-bin=2.39-0ubuntu8.12" \
+  "libc-dev-bin=2.39-0ubuntu8.12" \
+  "libc-devtools=2.39-0ubuntu8.12" \
+  "libc6=2.39-0ubuntu8.12" \
+  "libc6-dev=2.39-0ubuntu8.12" \
   "libauthen-sasl-perl=2.1700-1ubuntu0.1" \
   "libperl5.38t64=5.38.2-3.2ubuntu0.7" \
   "perl=5.38.2-3.2ubuntu0.7" \
