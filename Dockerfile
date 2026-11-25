@@ -18,12 +18,12 @@ ENV CONTAINER_USER="analyticalplatform" \
     AIRFLOW_RUNTIME_VERSION="${AIRFLOW_RUNTIME_VERSION}" \
     ANALYTICAL_PLATFORM_DIRECTORY="/opt/analyticalplatform" \
     DEBIAN_FRONTEND="noninteractive" \
-    AWS_CLI_VERSION="2.38.0" \
-    CUDA_VERSION="13.4.2" \
+    AWS_CLI_VERSION="2.42.3" \
+    CUDA_VERSION="13.5.0" \
     NVIDIA_DISABLE_REQUIRE="true" \
-    NVIDIA_CUDA_COMPAT_VERSION="615.71.09-2ubuntu1" \
-    NVIDIA_CUDA_CUDART_VERSION="13.4.92-1" \
-    R_VERSION="4.6.1-6.2404.0" \
+    NVIDIA_CUDA_COMPAT_VERSION="620.70.10-1ubuntu1" \
+    NVIDIA_CUDA_CUDART_VERSION="13.5.37-1" \
+    R_VERSION="4.6.2-2.2404.0" \
     NVIDIA_VISIBLE_DEVICES="all" \
     NVIDIA_DRIVER_CAPABILITIES="compute,utility" \
     LD_LIBRARY_PATH="/usr/local/nvidia/lib:/usr/local/nvidia/lib64" \
@@ -52,30 +52,40 @@ RUN <<EOF
 apt-get update --yes
 
 apt-get install --yes \
-  "apt-transport-https=2.8.3" \
+  "apt=2.8.4ubuntu0.1" \
+  "apt-transport-https=2.8.4ubuntu0.1" \
+  "libapt-pkg6.0t64=2.8.4ubuntu0.1" \
   "gzip=1.12-1ubuntu3.2" \
-  "ca-certificates=20260601~24.04.1" \
-  "curl=8.5.0-2ubuntu10.15" \
-  "libcurl3t64-gnutls=8.5.0-2ubuntu10.15" \
-  "libcurl4t64=8.5.0-2ubuntu10.15" \
-  "git=1:2.43.0-1ubuntu7.3" \
+  "ca-certificates=20260816ubuntu0.24.04.2" \
+  "curl=8.5.0-2ubuntu10.16" \
+  "libbrotli1=1.1.0-2ubuntu0.1" \
+  "libcurl3t64-gnutls=8.5.0-2ubuntu10.16" \
+  "libcurl4t64=8.5.0-2ubuntu10.16" \
+  "git=1:2.43.0-1ubuntu7.4" \
   "gpg=2.4.4-2ubuntu17.6" \
   "jq=1.7.1-3ubuntu0.24.04.2" \
   "libcap2=1:2.66-5ubuntu2.4" \
   "libaom3=3.8.2-2ubuntu0.2" \
   "libgnutls30t64=3.8.3-1.1ubuntu3.6" \
   "unzip=6.0-28ubuntu4.1" \
-  "libc-bin=2.39-0ubuntu8.9" \
-  "libc-dev-bin=2.39-0ubuntu8.9" \
-  "libc-devtools=2.39-0ubuntu8.9" \
-  "libc6=2.39-0ubuntu8.9" \
-  "libc6-dev=2.39-0ubuntu8.9" \
+  "libc-bin=2.39-0ubuntu8.12" \
+  "libc-dev-bin=2.39-0ubuntu8.12" \
+  "libc-devtools=2.39-0ubuntu8.12" \
+  "libc6=2.39-0ubuntu8.12" \
+  "libc6-dev=2.39-0ubuntu8.12" \
   "libauthen-sasl-perl=2.1700-1ubuntu0.1" \
+  "libperl5.38t64=5.38.2-3.2ubuntu0.7" \
+  "perl=5.38.2-3.2ubuntu0.7" \
+  "perl-base=5.38.2-3.2ubuntu0.7" \
+  "perl-modules-5.38=5.38.2-3.2ubuntu0.7" \
   "libssl3t64=3.0.13-0ubuntu3.16" \
+  "libpcre2-8-0=10.42-4ubuntu2.2" \
   "openssl=3.0.13-0ubuntu3.16" \
-  "libheif1=1.17.6-1ubuntu4.9" \
-  "libheif-plugin-aomdec=1.17.6-1ubuntu4.9" \
-  "libheif-plugin-aomenc=1.17.6-1ubuntu4.9"
+  "openssh-client=1:9.6p1-3ubuntu13.20" \
+  "libheif1=1.17.6-1ubuntu4.10" \
+  "libheif-plugin-aomdec=1.17.6-1ubuntu4.10" \
+  "libheif-plugin-aomenc=1.17.6-1ubuntu4.10" \
+  "zlib1g=1:1.3.dfsg-3.1ubuntu2.3"
 
 apt-get clean --yes
 
@@ -86,7 +96,7 @@ EOF
 
 # AWS CLI
 COPY --chown=nobody:nogroup --chmod=0644 src/opt/aws-cli/aws-cli@amazon.com.asc /opt/aws-cli/aws-cli@amazon.com.asc
-RUN <<EOF
+RUN --mount=type=secret,id=build_ca_bundle,target=/etc/ssl/certs/ca-certificates.crt,mode=0444 <<EOF
 gpg --import /opt/aws-cli/aws-cli@amazon.com.asc
 
 curl --location --fail-with-body \
@@ -108,7 +118,7 @@ EOF
 
 # R
 # Install R (https://www.r-project.org/)
-RUN <<EOF
+RUN --mount=type=secret,id=build_ca_bundle,target=/etc/ssl/certs/ca-certificates.crt,mode=0444 <<EOF
 curl --location --fail-with-body \
   "https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc" \
   --output "marutter_pubkey.asc"
@@ -121,7 +131,10 @@ echo "deb [signed-by=/etc/apt/keyrings/marutter_pubkey.gpg] https://cloud.r-proj
 
 apt-get update --yes
 
-apt-get install --yes "r-base=${R_VERSION}"
+apt-get install --yes \
+  "r-base=${R_VERSION}" \
+  "r-base-core=${R_VERSION}" \
+  "r-recommended=${R_VERSION}"
 
 apt-get clean --yes
 
@@ -131,7 +144,7 @@ chown --recursive "${CONTAINER_USER}:${CONTAINER_GROUP}" /usr/local/lib/R/site-l
 EOF
 
 # NVIDIA CUDA
-RUN <<EOF
+RUN --mount=type=secret,id=build_ca_bundle,target=/etc/ssl/certs/ca-certificates.crt,mode=0444 <<EOF
 curl --location --fail-with-body \
   "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub" \
   --output "3bf863cc.pub"
@@ -145,8 +158,8 @@ echo "deb [signed-by=/etc/apt/keyrings/nvidia.gpg] https://developer.download.nv
 apt-get update --yes
 
 apt-get install --yes \
-  "cuda-cudart-13-4=${NVIDIA_CUDA_CUDART_VERSION}" \
-  "cuda-compat-13-4=${NVIDIA_CUDA_COMPAT_VERSION}"
+  "cuda-cudart-13-5=${NVIDIA_CUDA_CUDART_VERSION}" \
+  "cuda-compat-13-5=${NVIDIA_CUDA_COMPAT_VERSION}"
 
 echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf
 echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf
