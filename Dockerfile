@@ -96,7 +96,7 @@ EOF
 
 # AWS CLI
 COPY --chown=nobody:nogroup --chmod=0644 src/opt/aws-cli/aws-cli@amazon.com.asc /opt/aws-cli/aws-cli@amazon.com.asc
-RUN <<EOF
+RUN --mount=type=secret,id=build_ca_bundle,target=/etc/ssl/certs/ca-certificates.crt,mode=0444 <<EOF
 gpg --import /opt/aws-cli/aws-cli@amazon.com.asc
 
 curl --location --fail-with-body \
@@ -118,7 +118,7 @@ EOF
 
 # R
 # Install R (https://www.r-project.org/)
-RUN <<EOF
+RUN --mount=type=secret,id=build_ca_bundle,target=/etc/ssl/certs/ca-certificates.crt,mode=0444 <<EOF
 curl --location --fail-with-body \
   "https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc" \
   --output "marutter_pubkey.asc"
@@ -144,7 +144,7 @@ chown --recursive "${CONTAINER_USER}:${CONTAINER_GROUP}" /usr/local/lib/R/site-l
 EOF
 
 # NVIDIA CUDA
-RUN <<EOF
+RUN --mount=type=secret,id=build_ca_bundle,target=/etc/ssl/certs/ca-certificates.crt,mode=0444 <<EOF
 curl --location --fail-with-body \
   "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub" \
   --output "3bf863cc.pub"
