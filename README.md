@@ -32,6 +32,19 @@ make build
 make test
 ```
 
+If your network inspects HTTPS traffic, the build may fail with a certificate
+verification error. Provide a trusted CA bundle containing both the standard
+public CAs and your organisation's inspection CA:
+
+```bash
+make test BUILD_CA_BUNDLE=/path/to/ca-bundle.crt
+```
+
+For example, on Linux the host's `/etc/ssl/certs/ca-certificates.crt` may already
+contain both. Only use a bundle from a trusted source. Docker mounts it for
+build-time downloads; it is not included in the resulting image. The same
+option works with `make build`.
+
 ### Run
 
 ```bash

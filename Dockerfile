@@ -1,6 +1,6 @@
 #checkov:skip=CKV_DOCKER_2: HEALTHCHECK not required - Health checks are implemented downstream of this image
 
-FROM docker.io/library/ubuntu:24.04@sha256:2198e4c65076e9cb0b3d695219df667c0e3b0072da64ca3c2648aca17dcecaf5
+FROM docker.io/library/ubuntu:24.04@sha256:562111b88caa79c71391c0c4d3c2114a7d5c35915c20561fd893cb1e07929e6b
 
 LABEL org.opencontainers.image.vendor="Ministry of Justice" \
       org.opencontainers.image.authors="Analytical Platform (analytical-platform@digital.justice.gov.uk)" \
@@ -18,12 +18,12 @@ ENV CONTAINER_USER="analyticalplatform" \
     AIRFLOW_RUNTIME_VERSION="${AIRFLOW_RUNTIME_VERSION}" \
     ANALYTICAL_PLATFORM_DIRECTORY="/opt/analyticalplatform" \
     DEBIAN_FRONTEND="noninteractive" \
-    AWS_CLI_VERSION="2.40.2" \
+    AWS_CLI_VERSION="2.42.3" \
     CUDA_VERSION="13.5.0" \
     NVIDIA_DISABLE_REQUIRE="true" \
-    NVIDIA_CUDA_COMPAT_VERSION="620.70.06-1ubuntu1" \
+    NVIDIA_CUDA_COMPAT_VERSION="620.70.10-1ubuntu1" \
     NVIDIA_CUDA_CUDART_VERSION="13.5.37-1" \
-    R_VERSION="4.6.2-1.2404.0" \
+    R_VERSION="4.6.2-2.2404.0" \
     NVIDIA_VISIBLE_DEVICES="all" \
     NVIDIA_DRIVER_CAPABILITIES="compute,utility" \
     LD_LIBRARY_PATH="/usr/local/nvidia/lib:/usr/local/nvidia/lib64" \
@@ -82,9 +82,9 @@ apt-get install --yes \
   "libpcre2-8-0=10.42-4ubuntu2.2" \
   "openssl=3.0.13-0ubuntu3.16" \
   "openssh-client=1:9.6p1-3ubuntu13.20" \
-  "libheif1=1.17.6-1ubuntu4.9" \
-  "libheif-plugin-aomdec=1.17.6-1ubuntu4.9" \
-  "libheif-plugin-aomenc=1.17.6-1ubuntu4.9" \
+  "libheif1=1.17.6-1ubuntu4.10" \
+  "libheif-plugin-aomdec=1.17.6-1ubuntu4.10" \
+  "libheif-plugin-aomenc=1.17.6-1ubuntu4.10" \
   "zlib1g=1:1.3.dfsg-3.1ubuntu2.3"
 
 apt-get clean --yes
@@ -96,7 +96,7 @@ EOF
 
 # AWS CLI
 COPY --chown=nobody:nogroup --chmod=0644 src/opt/aws-cli/aws-cli@amazon.com.asc /opt/aws-cli/aws-cli@amazon.com.asc
-RUN <<EOF
+RUN --mount=type=secret,id=build_ca_bundle,target=/etc/ssl/certs/ca-certificates.crt,mode=0444 <<EOF
 gpg --import /opt/aws-cli/aws-cli@amazon.com.asc
 
 curl --location --fail-with-body \
@@ -118,7 +118,7 @@ EOF
 
 # R
 # Install R (https://www.r-project.org/)
-RUN <<EOF
+RUN --mount=type=secret,id=build_ca_bundle,target=/etc/ssl/certs/ca-certificates.crt,mode=0444 <<EOF
 curl --location --fail-with-body \
   "https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc" \
   --output "marutter_pubkey.asc"
@@ -144,7 +144,7 @@ chown --recursive "${CONTAINER_USER}:${CONTAINER_GROUP}" /usr/local/lib/R/site-l
 EOF
 
 # NVIDIA CUDA
-RUN <<EOF
+RUN --mount=type=secret,id=build_ca_bundle,target=/etc/ssl/certs/ca-certificates.crt,mode=0444 <<EOF
 curl --location --fail-with-body \
   "https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub" \
   --output "3bf863cc.pub"

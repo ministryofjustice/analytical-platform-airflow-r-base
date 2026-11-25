@@ -78,3 +78,9 @@ ignore:
   - vulnerability: CVE-2026-115557
     package:
       location: "/usr/local/aws-cli/**"
+  # AWS CLI 2.42.3 bundles Python 3.14.10; fixed in Python 3.14.11.
+  - vulnerability: CVE-2026-119170
+    package:
+      name: python
+      version: 3.14.10
+      location: "/usr/local/aws-cli/v2/*/dist/libpython3.14.so.1.0"
