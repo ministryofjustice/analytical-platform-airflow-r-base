@@ -85,7 +85,14 @@ apt-get install --yes \
   "libheif1=1.17.6-1ubuntu4.10" \
   "libheif-plugin-aomdec=1.17.6-1ubuntu4.10" \
   "libheif-plugin-aomenc=1.17.6-1ubuntu4.10" \
-  "zlib1g=1:1.3.dfsg-3.1ubuntu2.3"
+  "zlib1g=1:1.3.dfsg-3.1ubuntu2.3" \
+  "krb5-locales=1.20.1-6ubuntu2.12" \
+  "libgssapi-krb5-2=1.20.1-6ubuntu2.12" \
+  "libk5crypto3=1.20.1-6ubuntu2.12" \
+  "libkrb5-3=1.20.1-6ubuntu2.12" \
+  "libkrb5support0=1.20.1-6ubuntu2.12" \
+  "libelf1t64=0.190-1.1ubuntu0.2" \
+  "libexpat1=2.6.1-2ubuntu0.7"
 
 apt-get clean --yes
 

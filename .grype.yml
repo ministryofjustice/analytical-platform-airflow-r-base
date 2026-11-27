@@ -84,3 +84,17 @@ ignore:
       name: python
       version: 3.14.10
       location: "/usr/local/aws-cli/v2/*/dist/libpython3.14.so.1.0"
+  # AWS CLI 2.42.3 bundles Python 3.14.10; fixed in Python 3.14.11.
+  # Remove once an AWS CLI release bundles Python >= 3.14.11.
+  - vulnerability: CVE-2026-119170
+    expires-at: "2027-01-27"
+    reason: >-
+      Accepted temporary risk: this finding is limited to the Python 3.14.10
+      interpreter embedded by AWS CLI v2 at
+      /usr/local/aws-cli/v2/*/dist/libpython3.14.so.1.0. No AWS CLI v2
+      release yet bundles a fixed Python runtime, so this repository cannot
+      remediate the finding. Review when AWS CLI updates its embedded Python.
+    package:
+      name: python
+      version: 3.14.10
+      location: "/usr/local/aws-cli/v2/*/dist/libpython3.14.so.1.0"
